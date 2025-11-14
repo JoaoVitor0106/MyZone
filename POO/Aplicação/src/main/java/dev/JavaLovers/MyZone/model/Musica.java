@@ -2,39 +2,27 @@ package dev.JavaLovers.MyZone.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
+import java.time.LocalDate; // Importar
 
 @Entity
 @Table(name = "musica")
 public class Musica extends Midia {
     private String artista;
-    private String genero;
+    private String album;
+    private LocalDate dataEstreia; // <-- MUDADO PARA LOCALDATE
 
-    public Musica() {};
+    public Musica() {
+        super();
+    };
 
-    public Musica(String nome, Usuario cadastradoPor, String artista, String genero) {
-        super(nome, cadastradoPor);
-        this.artista = artista;
-        this.genero = genero;
-    }
-
-    public String getArtista() { 
-        return artista; 
-    }
+    // Getters e Setters
+    public String getArtista() { return artista; }
     public void setArtista(String artista) { this.artista = artista; }
-    public String getGenero() { 
-        return genero; 
-    }
-    public void setGenero(String genero) { 
-        this.genero = genero; 
-    }
+    public String getAlbum() { return album; }
+    public void setAlbum(String album) { this.album = album; }
+    public LocalDate getDataEstreia() { return dataEstreia; }
+    public void setDataEstreia(LocalDate dataEstreia) { this.dataEstreia = dataEstreia; }
 
     @Override
-    public String getTipo() {
-        return "MUSICA";
-    }
-
-    @Override
-    public String toString() {
-        return super.toString() + " | Artista: " + artista + " | Gênero: " + genero;
-    }
+    public String getTipo() { return "MUSICA"; }
 }
